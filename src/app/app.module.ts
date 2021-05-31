@@ -4,8 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MembersListComponent } from './members/members-list/members-list.component';
-import { HousesListComponent } from './houses/houses-list/houses-list.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -13,12 +12,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MembersListComponent } from './members/members-list/members-list.component';
+import { HousesListComponent } from './houses/houses-list/houses-list.component';
+import { MemberProfileComponent } from './members/member-profile/member-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembersListComponent,
-    HousesListComponent
+    HousesListComponent,
+    MemberProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

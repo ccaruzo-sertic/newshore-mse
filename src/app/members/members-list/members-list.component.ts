@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatSort, Sort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Member } from '../../interfaces/member';
 import { MembersService } from '../../services/members.service';
+import { MemberProfileComponent } from '../member-profile/member-profile.component';
 
 @Component({
   selector: 'app-members-list',
@@ -17,6 +19,7 @@ export class MembersListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    public dialog: MatDialog,
     private membersService: MembersService,
     private route: ActivatedRoute,
     private router: Router
@@ -32,6 +35,14 @@ export class MembersListComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+
+  openDialog(row: Member) {
+    const dialogRef = this.dialog.open(MemberProfileComponent, {
+      width: '300px',
+      data: row
+    });
+  }
+
   ngOnInit() {
 
   }
